@@ -1,4 +1,7 @@
 import "@/assets/styles/globals.css";
+import AuthProvider from "@/components/AuthProvider";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "My Next Project",
@@ -8,11 +11,15 @@ export const metadata = {
 
 const MainLayout = ({ children }) => {
   return (
-    <html lang="en">
-      <body>
-        <div>{children}</div>;
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en">
+        <body>
+          <Navbar />
+          <div>{children}</div>;
+          <Footer />
+        </body>
+      </html>
+    </AuthProvider>
   );
 };
 
